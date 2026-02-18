@@ -311,11 +311,12 @@ void reconstruction(){
 
     //_________DRAW HISTOS AND GRAPHICS_________________
 
+    gStyle->SetOptStat(1101);
     //residuals
     TCanvas* cResiduals = new TCanvas("cResiduals","",1200,800);
     hResiduals->SetDirectory(0);
     hResiduals->SetTitle("Residuals");
-    hResiduals->SetXTitle("(z_{rec}-z_{mean}) [#mum]");
+    hResiduals->SetXTitle("(z_{rec}-z_{true}) [#mum]");
     hResiduals->SetYTitle(Form("Entries/(%.f #mum)", hResiduals->GetBinWidth(1)));
     hResiduals->Draw("PE1");
     cResiduals->Print("plots/residuals.png");
@@ -366,3 +367,4 @@ void reconstruction(){
 double get_eta(double theta){
     return -std::log(std::tan(theta/2));
 }
+
