@@ -311,7 +311,7 @@ void reconstruction(){
 
     //_________DRAW HISTOS AND GRAPHICS_________________
 
-    gStyle->SetOptStat(1101);
+    gStyle->SetOptStat(111);
     //residuals
     TCanvas* cResiduals = new TCanvas("cResiduals","",1200,800);
     hResiduals->SetDirectory(0);
