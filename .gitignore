@@ -1,6 +1,10 @@
+
 *.so
 *.d
 *.pcm
 hits_data.root
 .git/
 build/
+plots/
+.vscode/
+.DS_Store
