@@ -1,4 +1,4 @@
-# Simulation of collision events and verticis reconstruction
+# Simulation of collision events and vertices reconstruction
 
 ## How to run
 In ROOT:
