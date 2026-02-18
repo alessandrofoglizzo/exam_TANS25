@@ -1,6 +1,6 @@
 *.so
 *.d
 *.pcm
-*.root
+hits_data.root
 .git/
 build/
