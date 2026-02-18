@@ -8,4 +8,9 @@
     gSystem->CompileMacro("Point.cxx", "k");
     gSystem->CompileMacro("VTX.cxx", "k");
     gSystem->CompileMacro("Particle.cxx", "k");
+
+    //compile program macros
+    gSystem->CompileMacro("simulation.C", "k");
+    gSystem->CompileMacro("reconstruction.C", "k");
+
 }
