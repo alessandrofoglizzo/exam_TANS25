@@ -5,7 +5,7 @@
 
     //compile classes macros
     gSystem->CompileMacro("CYL.cxx", "k");
-    gSystem->CompileMacro("Point.cxx", "k");
+    gSystem->CompileMacro("cPoint.cxx", "k");
     gSystem->CompileMacro("VTX.cxx", "k");
     gSystem->CompileMacro("Particle.cxx", "k");
 

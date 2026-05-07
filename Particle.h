@@ -4,7 +4,7 @@
 #include "TObject.h"
 #include "CYL.h"
 #include "VTX.h"
-#include "Point.h"
+#include "cPoint.h"
 #include "TH1.h"
 
 class Particle: public TObject{
@@ -16,7 +16,7 @@ class Particle: public TObject{
     Particle(double Phi, double Eta);
     Particle(double Phi, double Eta, double Z0);
     Particle(double Phi, double Eta, const VTX& vertex);
-    Particle(double Phi, double Eta, const Point& point);
+    Particle(double Phi, double Eta, const cPoint& point);
     Particle(const Particle& source);
     virtual ~Particle();
 
@@ -35,8 +35,8 @@ class Particle: public TObject{
     Particle& Initialize(const VTX& vertex, const TH1* eta_dist);
     Particle& MultipleScattering(double pc, const CYL& cylinder, bool MS); //pc is momentum in MeV, beta=1
     Particle& MultipleScattering(double pc, double RadLen, double t, bool MS);
-    Particle& Transport(const CYL& cylinder, Point& hit_point);   //function for transport of particle between a point and cylinder
-    Particle& Transport(double R, double H, Point& hit_point);
+    Particle& Transport(const CYL& cylinder, cPoint& hit_point);   //function for transport of particle between a point and cylinder
+    Particle& Transport(double R, double H, cPoint& hit_point);
 
     private:
     //data members

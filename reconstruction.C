@@ -3,7 +3,7 @@
 #include "TMath.h"
 #include "Particle.h"
 #include "CYL.h"
-#include "Point.h"
+#include "cPoint.h"
 #include "VTX.h"
 #include "TFile.h"
 #include "TTree.h"
@@ -57,9 +57,9 @@ void reconstruction(){
 
     //declaring vertex pointer and TClonesArrays 
     VTX *vertex = new VTX();
-    TClonesArray *ptrhits1 = new TClonesArray("Point", 100);
+    TClonesArray *ptrhits1 = new TClonesArray("cPoint", 100);
     TClonesArray &hits1 = *ptrhits1; // hits1 is the object pointed by ptrhits1
-    TClonesArray *ptrhits2 = new TClonesArray("Point", 100);
+    TClonesArray *ptrhits2 = new TClonesArray("cPoint", 100);
     TClonesArray &hits2 = *ptrhits2; //same for layer 2
 
     //declaring branches and setting addresses
@@ -163,13 +163,13 @@ void reconstruction(){
 
         //faster loop to fill vectors
         for(int i=0; i<nHits1; i++){ //hits on L1
-            Point* p1 = (Point*)hits1[i]; //pointer to i-th hit on L1
+            cPoint* p1 = (cPoint*)hits1[i]; //pointer to i-th hit on L1
             h1_Phi.push_back(p1->GetPhi());
             h1_Z.push_back(p1->GetZ());
         }
         //loop on L2
         for(int j=0; j<nHits2; j++){ //hits on L1
-            Point* p2 = (Point*)hits2[j]; //pointer to i-th hit on L1
+            cPoint* p2 = (cPoint*)hits2[j]; //pointer to i-th hit on L1
             h2_Phi.push_back(p2->GetPhi());
             h2_Z.push_back(p2->GetZ());
         }

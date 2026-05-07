@@ -61,7 +61,7 @@ TObject(),
         //constructor by vertex
     }
 //_________________________________
-Particle::Particle(double Phi, double Eta, const Point& point):
+Particle::Particle(double Phi, double Eta, const cPoint& point):
     TObject(),
     fPhi(Phi),
     fEta(Eta),
@@ -256,7 +256,7 @@ Particle& Particle::MultipleScattering(double pc, double RadLen, double t, bool 
     return *this;
 }
 //_____________________________________________________
-Particle& Particle::Transport(const CYL& cylinder, Point& hit_point){
+Particle& Particle::Transport(const CYL& cylinder, cPoint& hit_point){
     double c1 = std::sin(fTheta)*std::cos(fPhi);
     double c2 = std::sin(fTheta)*std::sin(fPhi);
     double c3 = std::cos(fTheta);
@@ -284,7 +284,7 @@ Particle& Particle::Transport(const CYL& cylinder, Point& hit_point){
     return *this;
 }
 //_____________________________________________________
-Particle& Particle::Transport(double R, double H, Point& hit_point){
+Particle& Particle::Transport(double R, double H, cPoint& hit_point){
     double c1 = std::sin(fTheta)*std::cos(fPhi);
     double c2 = std::sin(fTheta)*std::sin(fPhi);
     double c3 = std::cos(fTheta);

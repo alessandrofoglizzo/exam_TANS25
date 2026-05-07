@@ -1,6 +1,6 @@
 #include "Particle.h"
 #include "CYL.h"
-#include "Point.h"
+#include "cPoint.h"
 #include "VTX.h"
 #include "TFile.h"
 #include "TStopwatch.h"
@@ -65,20 +65,20 @@ void simulation(double nevents=100000, bool MS=true, bool assigned_distr=true){
 
     //Declaring TClonesArrays
     //hits on layer 1
-    TClonesArray *ptrhits1 = new TClonesArray("Point", 100);
+    TClonesArray *ptrhits1 = new TClonesArray("cPoint", 100);
     TClonesArray &hits1 = *ptrhits1; // hits1 is the object pointed by ptrhits1
 
     //hits on layer 2
-    TClonesArray *ptrhits2 = new TClonesArray("Point", 100);
+    TClonesArray *ptrhits2 = new TClonesArray("cPoint", 100);
     TClonesArray &hits2 = *ptrhits2; //same for layer 2
 
 
     //declaring pointer of vertex and particle
     VTX* vertex = new VTX();
     Particle* part = new Particle();
-    Point* intersection0 = new Point();
-    Point* intersection1 = new Point();
-    Point* intersection2 = new Point();
+    cPoint* intersection0 = new cPoint();
+    cPoint* intersection1 = new cPoint();
+    cPoint* intersection2 = new cPoint();
 
 
     //declaring branches
@@ -128,7 +128,7 @@ void simulation(double nevents=100000, bool MS=true, bool assigned_distr=true){
             intersection1->SmearingPhi(sigma_smearing_AR);
             //if there is intersection, save hit
             if (part->GetVisible()){
-                new (hits1[nHits1]) Point(*intersection1);
+                new (hits1[nHits1]) cPoint(*intersection1);
                 nHits1++;
             }
             
@@ -140,7 +140,7 @@ void simulation(double nevents=100000, bool MS=true, bool assigned_distr=true){
             intersection2->SmearingPhi(sigma_smearing_AR);
             //if there is intersection, save hit
             if (part->GetVisible()){
-                new (hits2[nHits2]) Point(*intersection2);
+                new (hits2[nHits2]) cPoint(*intersection2);
                 nHits2++;
             }
             
